@@ -1,0 +1,72 @@
+<div class="container-header">
+  <img src="../../../assets/img/logo-blanco.png" alt="logo lucasian">
+  <div class="container-title">
+    <h1>Bienvenido a DigitalEstimator</h1>
+    <h3 (click)="copiarCodigo(token)" matTooltip="Copiar código" matTooltipPosition="below">Código: <b>{{token}}</b></h3>
+  </div>
+  <div class="container-icon">
+    
+      <mat-icon matTooltip="Cerrar Sesión" matTooltipPosition="below"><a routerLink="/login">output</a></mat-icon>
+    
+  </div>
+</div>
+<mat-vertical-stepper>
+  <!--Sección 1-->
+  <mat-step [stepControl]="firstFormGroup">
+    <ng-template matStepLabel>Tamaño</ng-template>
+    <ng-container>
+      <app-size></app-size>
+    </ng-container>
+    <div class="mt-4">
+      <button mat-stroked-button color="primary" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <!--Sección 2-->
+  <mat-step [stepControl]="secondFormGroup">
+    <ng-template matStepLabel>Esfuerzo Pivote</ng-template>
+    <ng-container>
+      <app-pivotEffort></app-pivotEffort>
+    </ng-container>
+    <div>
+      <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
+      <button mat-stroked-button color="primary" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <!--Sección 3-->
+  <mat-step [stepControl]="threeFormGroup">
+    <ng-template matStepLabel>Actividades Complementarias</ng-template>
+    <ng-container>
+      <app-complementaryActivities></app-complementaryActivities>
+    </ng-container>
+    <div>
+      <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
+      <button mat-stroked-button color="primary" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <!--Sección 4-->
+  <mat-step [stepControl]="fourFormGroup">
+    <ng-template matStepLabel>Esfuerzo</ng-template>
+    <ng-container>
+      <app-effort></app-effort>
+    </ng-container>
+    <div>
+      <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
+      <button mat-stroked-button color="primary" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <!--Sección 5-->
+  <mat-step [stepControl]="fiveFormGroup">
+    <ng-template matStepLabel>Costeo</ng-template>
+    <ng-container>
+      <app-costing></app-costing>
+    </ng-container>
+    <div>
+      <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
+

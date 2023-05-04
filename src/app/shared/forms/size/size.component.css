@@ -1,0 +1,21 @@
+.container-buscador {
+    display: flex;
+    justify-content: center;
+}
+.buscador{
+    width: 500px;
+}
+
+.container {
+    height: 300px;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+}
+
+mat-header-cell,
+mat-cell {
+    justify-content: center;
+}

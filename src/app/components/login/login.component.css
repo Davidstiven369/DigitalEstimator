@@ -1,0 +1,38 @@
+.container{
+    background-image: url("../../../assets/img/f1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+
+.lg-lucasian{
+    max-width: 20%;
+    height: auto;
+    float: right;
+    padding: 30px;
+}
+
+.container-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: -webkit-fill-available;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.containter-btn-login{
+    display:grid;
+    max-width: 60%;
+}
+
+h1{
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.btn-login{
+    color: white;
+    background-color: #D35C20;
+    margin: 20px;
+}

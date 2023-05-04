@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>Diligencia el siguiente formulario</h2>
+<mat-dialog-content>
+  <form [formGroup]="formulario">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre">
+      <mat-error *ngIf="formulario.controls['nombre'].hasError('required')">El nombre es requerido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Empresa</mat-label>
+      <input matInput formControlName="empresa">
+      <mat-error *ngIf="formulario.controls.empresa.hasError('required')">La empresa es requerida</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="correo">
+      <mat-error *ngIf="formulario.controls.correo.hasError('required')">El correo es requerido</mat-error>
+      <mat-error *ngIf="formulario.controls.correo.hasError('email')">El correo no es válido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Cargo</mat-label>
+      <input matInput formControlName="cargo">
+      <mat-error *ngIf="formulario.controls.cargo.hasError('required')">El cargo es requerido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Teléfono</mat-label>
+      <input matInput formControlName="telefono">
+      <mat-error *ngIf="formulario.controls.telefono.hasError('required')">El teléfono es requerido</mat-error>
+      <mat-error *ngIf="formulario.controls.telefono.hasError('minlength')">El teléfono debe tener al menos 10 dígitos</mat-error>
+      <mat-error *ngIf="formulario.controls.telefono.hasError('maxlength')">El teléfono debe tener máximo 10 dígitos</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Proyecto</mat-label>
+      <input matInput formControlName="proyecto">
+      <mat-error *ngIf="formulario.controls.proyecto.hasError('required')">El proyecto es requerido</mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+  <button mat-raised-button color="primary" (click)="enviar()">Aceptar</button>
+</mat-dialog-actions>

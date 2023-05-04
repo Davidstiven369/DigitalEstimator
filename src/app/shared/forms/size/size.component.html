@@ -1,0 +1,47 @@
+<div class="container-buscador">
+  <mat-form-field class="buscador">
+    <mat-label>Buscador</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Busca por letra o numero" #input>
+  </mat-form-field>
+</div>
+
+<section class="container mat-elevation-z5" tabindex="0">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element" contenteditable="true"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Epica">
+      <th mat-header-cell *matHeaderCellDef> Epica </th>
+      <td mat-cell *matCellDef="let element" contenteditable="true"> {{element.epica}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="HU">
+      <th mat-header-cell *matHeaderCellDef> Historia de Usuario </th>
+      <td mat-cell *matCellDef="let element" contenteditable="true"> {{element.hu}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Alcance">
+      <th mat-header-cell *matHeaderCellDef> Alcance </th>
+      <td mat-cell *matCellDef="let element" contenteditable="true"> {{element.alcance}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Tamano">
+      <th mat-header-cell *matHeaderCellDef> Tamaño </th>
+      <td mat-cell *matCellDef="let element" contenteditable="editar"> {{element.tamano}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Opciones">
+      <th mat-header-cell *matHeaderCellDef> Opciones </th>
+      <td mat-cell *matCellDef="let element"  (click)="changeEdit()"> 
+        <mat-icon>edit</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</section>
+

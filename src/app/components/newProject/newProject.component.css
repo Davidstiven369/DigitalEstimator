@@ -1,0 +1,42 @@
+.container-header{
+    padding: 20px;
+    background: #D35C20;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+img{
+    width: 14vw;
+}
+
+.container-title{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+h1{
+    font-size: 3vw;
+    font-weight: 500;
+}
+
+h3:hover{
+    cursor: pointer;
+}
+
+.container-icon{
+    align-self: center;
+    width: 5vw;
+    cursor: pointer;
+}
+
+button{
+    font-family: 'Maven Pro', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
