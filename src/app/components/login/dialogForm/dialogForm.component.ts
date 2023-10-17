@@ -3,6 +3,11 @@ import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { UsuarioService } from '../../../services/usuario.service';
+
+
+
+
 @Component({
   selector: 'app-dialogForm',
   templateUrl: './dialogForm.component.html',
@@ -13,6 +18,8 @@ export class DialogFormComponent implements OnInit {
   formulario: FormGroup;
 
   constructor(
+    public usuarioService: UsuarioService,
+
     public dialogRef: MatDialogRef<DialogFormComponent>, 
     private formBuilder: FormBuilder,
     private router: Router) { 
@@ -44,8 +51,9 @@ export class DialogFormComponent implements OnInit {
   enviar() {
     const token = this.generarCadenaAleatoria();
     if (!this.formulario.invalid && token != null) {
-      localStorage.setItem('Token', token);
-      this.router.navigate(['/newProject']);
+      this.usuarioService.guardarStorage(token);
+      this.usuarioService.crearUsuario(this.formulario.value);
+      
       this.dialogRef.close();
       
     }
