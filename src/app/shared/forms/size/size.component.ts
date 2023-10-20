@@ -6,6 +6,9 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './size.component.html',
   styleUrls: ['./size.component.css']
 })
+
+
+
 export class SizeComponent implements OnInit  {
 
   displayedColumns: string[] = ['ID', 'Epica', 'HU', 'Alcance', 'Tamano', 'Opciones'];

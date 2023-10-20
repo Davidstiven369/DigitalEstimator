@@ -1,9 +1,20 @@
 <div class="container-buscador">
   <mat-form-field class="buscador">
     <mat-label>Buscador</mat-label>
+
     <input matInput (keyup)="applyFilter($event)" placeholder="Busca por letra o numero" #input>
   </mat-form-field>
+
+  
+    <button mat-fab color="primary" (click)="onPlusClick()">
+      <mat-icon>add</mat-icon>
+  </button>
 </div>
+
+
+
+
+
 
 <section class="container mat-elevation-z5" tabindex="0">
   <table mat-table [dataSource]="dataSource">

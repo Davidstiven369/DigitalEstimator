@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+
+
 import { Router } from '@angular/router';
 
 import { UsuarioService } from '../../../services/usuario.service';
+import { Usuario } from 'src/app/models/usuario.models';
 
 
 
@@ -11,18 +14,23 @@ import { UsuarioService } from '../../../services/usuario.service';
 @Component({
   selector: 'app-dialogForm',
   templateUrl: './dialogForm.component.html',
-  styleUrls: ['./dialogForm.component.css']
+  styleUrls: ['./dialogForm.component.css'],
+ 
+  providers: [UsuarioService]
+  //david
 })
+
+@Injectable({  providedIn: "root"})
 export class DialogFormComponent implements OnInit {
 
   formulario: FormGroup;
 
   constructor(
-    public usuarioService: UsuarioService,
+    //solucionar 
+    private usuarioService: UsuarioService,
 
     public dialogRef: MatDialogRef<DialogFormComponent>, 
-    private formBuilder: FormBuilder,
-    private router: Router) { 
+    private formBuilder: FormBuilder) { 
 
       this.formulario = this.formBuilder.group({
         nombre: new FormControl('', [Validators.required]),
@@ -48,16 +56,20 @@ export class DialogFormComponent implements OnInit {
     return cadena;
   }
 
+ //david
   enviar() {
-    const token = this.generarCadenaAleatoria();
-    if (!this.formulario.invalid && token != null) {
-      this.usuarioService.guardarStorage(token);
-      this.usuarioService.crearUsuario(this.formulario.value);
+        const token = this.generarCadenaAleatoria();
+         if (!this.formulario.invalid && token != null) {
+          this.usuarioService.guardarStorage(token);
+          console.log("data ", this.formulario.value);
+          const usuario = new Usuario(this.formulario.value.nombre,this.formulario.value.empresa,
+          this.formulario.value.correo,this.formulario.value.cargo,this.formulario.value.telefono);
+           this.usuarioService.crearUsuario(usuario).subscribe();
       
-      this.dialogRef.close();
+            this.dialogRef.close();
       
-    }
-    console.log("data ", this.formulario.value);
+   }
+            
     
   }
 

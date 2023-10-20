@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   openDialog(): void {
     this.dialog.open(DialogFormComponent, {
-      width: 'auto'
+      width: 'auto',
+      
     });
   }
 

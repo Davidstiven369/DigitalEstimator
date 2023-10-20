@@ -25,6 +25,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatStepperModule } from '@angular/material/stepper';
 
+// services
+import { UsuarioService } from './services/usuario.service';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,9 +48,11 @@ import { MatStepperModule } from '@angular/material/stepper';
     AppRoutingModule,
     MatStepperModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  
+  providers: [UsuarioService],
   bootstrap: [AppComponent],
   entryComponents: [DialogFormComponent]
 })
