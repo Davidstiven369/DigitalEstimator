@@ -7,6 +7,11 @@ import { Router } from '@angular/router';
 
 import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from 'src/app/models/usuario.models';
+//david>
+import { ProyectoService } from '../../../services/proyecto.service';
+import { Proyecto } from 'src/app/models/proyecto.models';
+//david>
+
 
 
 
@@ -16,7 +21,7 @@ import { Usuario } from 'src/app/models/usuario.models';
   templateUrl: './dialogForm.component.html',
   styleUrls: ['./dialogForm.component.css'],
  
-  providers: [UsuarioService]
+  providers: [UsuarioService,ProyectoService]
   //david
 })
 
@@ -27,6 +32,7 @@ export class DialogFormComponent implements OnInit {
 
   constructor(
     //solucionar 
+    private proyectoService: ProyectoService,
     private usuarioService: UsuarioService,
 
     public dialogRef: MatDialogRef<DialogFormComponent>, 
@@ -61,10 +67,18 @@ export class DialogFormComponent implements OnInit {
         const token = this.generarCadenaAleatoria();
          if (!this.formulario.invalid && token != null) {
           this.usuarioService.guardarStorage(token);
-          console.log("data ", this.formulario.value);
+          console.log("data test", this.formulario.value);
+          
+
+          const proyecto = new Proyecto (this.formulario.value.proyecto,token);
+
+
           const usuario = new Usuario(this.formulario.value.nombre,this.formulario.value.empresa,
           this.formulario.value.correo,this.formulario.value.cargo,this.formulario.value.telefono);
-           this.usuarioService.crearUsuario(usuario).subscribe();
+          this.usuarioService.crearUsuario(usuario).subscribe();
+
+
+          this.proyectoService.crearProyecto(proyecto).subscribe();
       
             this.dialogRef.close();
       

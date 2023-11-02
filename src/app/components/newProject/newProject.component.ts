@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './newProject.component.html',
   styleUrls: ['./newProject.component.css']
 })
+
 export class NewProjectComponent implements OnInit {
 
   firstFormGroup: FormGroup;
@@ -18,7 +19,7 @@ export class NewProjectComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private _snackBar: MatSnackBar) {}
   
   ngOnInit() {
-    this.token = localStorage.getItem('Token');
+    this.token = localStorage.getItem('token');
     this.firstFormGroup = this.formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -46,3 +47,4 @@ export class NewProjectComponent implements OnInit {
     });
   }
 }
+

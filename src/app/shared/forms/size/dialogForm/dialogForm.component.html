@@ -1,0 +1,54 @@
+
+<h2 mat-dialog-title>Crear Tamaño </h2>
+
+<mat-dialog-content>
+  
+  <form [formGroup]="formulario" >
+
+    
+
+    <mat-form-field>
+      <mat-label>Epica</mat-label>
+      <input matInput formControlName="epica">
+      <mat-error *ngIf="formulario.controls['epica'].hasError('required')">El epica es requerido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Historia de Usuario</mat-label>
+      <input matInput formControlName="hu">
+      <mat-error *ngIf="formulario.controls.hu.hasError('required')">La historia usuario es requerida</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Alcance</mat-label>
+      <input matInput formControlName="alcance">
+      <mat-error *ngIf="formulario.controls.alcance.hasError('required')">El alcance es requerido</mat-error>
+      
+    </mat-form-field>
+
+    
+<mat-form-field>
+  <mat-label>Grado de Dificultad</mat-label>
+  <select matNativeControl required>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="5">5</option>
+  </select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Grado de Dificultad</mat-label>
+  <select matNativeControl required>
+    <option *ngFor="let value of fibonacciValues" [value]="value.id">{{ value.numero }}</option>
+  </select>
+</mat-form-field>
+
+
+    
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+  <button mat-raised-button color="primary" (click)="enviar()">Aceptar</button>
+</mat-dialog-actions>
